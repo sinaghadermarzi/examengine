@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExamEngine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Connection Status Bar -->
+    <div id="status-bar">
+      <span id="connection-status">Connecting...</span>
+      <span id="user-info"></span>
+    </div>
+
+    <!-- Registration Screen -->
+    <div id="screen-register" class="screen active">
+      <div class="card center-card">
+        <h1>ExamEngine</h1>
+        <p class="subtitle">Real-time Examination Platform</p>
+        <div class="form-group">
+          <label for="input-name">Your Name</label>
+          <input type="text" id="input-name" placeholder="Enter your name" autofocus>
+        </div>
+        <button id="btn-register" class="btn btn-primary">Enter</button>
+      </div>
+    </div>
+
+    <!-- Lobby Screen -->
+    <div id="screen-lobby" class="screen">
+      <div class="card">
+        <h2>Exam Lobby</h2>
+        <div class="lobby-actions">
+          <button id="btn-create-exam" class="btn btn-primary">Create New Exam</button>
+          <button id="btn-refresh-exams" class="btn btn-secondary">Refresh List</button>
+        </div>
+        <div id="exam-list">
+          <p class="muted">No exams available. Create one to get started.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create Exam Screen -->
+    <div id="screen-create" class="screen">
+      <div class="card">
+        <h2>Create Exam</h2>
+        <div class="form-group">
+          <label for="exam-title">Exam Title</label>
+          <input type="text" id="exam-title" placeholder="e.g. Midterm Exam">
+        </div>
+        <div class="form-group">
+          <label for="exam-duration">Duration (minutes)</label>
+          <input type="number" id="exam-duration" value="60" min="1" max="480">
+        </div>
+        <h3>Questions</h3>
+        <div id="questions-container"></div>
+        <button id="btn-add-question" class="btn btn-secondary">+ Add Question</button>
+        <div class="form-actions">
+          <button id="btn-back-lobby" class="btn btn-secondary">Back</button>
+          <button id="btn-submit-exam" class="btn btn-primary">Create Exam</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exam Waiting Room -->
+    <div id="screen-waiting" class="screen">
+      <div class="card">
+        <h2 id="waiting-title">Waiting for Exam to Start</h2>
+        <div id="waiting-info"></div>
+        <div id="participants-list"></div>
+        <button id="btn-start-exam" class="btn btn-primary" style="display:none">Start Exam</button>
+        <button id="btn-leave-exam" class="btn btn-secondary">Leave</button>
+      </div>
+    </div>
+
+    <!-- Active Exam Screen -->
+    <div id="screen-exam" class="screen">
+      <div class="exam-header">
+        <h2 id="exam-active-title"></h2>
+        <div id="exam-timer" class="timer">--:--</div>
+      </div>
+      <div id="exam-questions"></div>
+      <div class="form-actions">
+        <button id="btn-submit-answers" class="btn btn-primary">Submit Exam</button>
+      </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="screen-results" class="screen">
+      <div class="card">
+        <h2>Exam Results</h2>
+        <div id="results-content"></div>
+        <button id="btn-back-to-lobby" class="btn btn-primary">Back to Lobby</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
