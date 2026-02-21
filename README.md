@@ -21,6 +21,24 @@ npm start
 
 Open `http://localhost:3000` in your browser.
 
+## Docker
+
+```bash
+# Build
+docker build -t examengine .
+
+# Run (with persistent data volume)
+docker run -d -p 3000:3000 -v examengine-data:/app/data --name examengine examengine
+
+# Stop
+docker stop examengine
+
+# View logs
+docker logs -f examengine
+```
+
+The SQLite database is stored in `/app/data` inside the container. Mount a volume there to persist exams and answers across container restarts.
+
 ## Architecture
 
 ```
