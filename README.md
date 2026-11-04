@@ -19,7 +19,9 @@ npm install
 npm start
 ```
 
-Open `http://localhost:3000` in your browser.
+Open `http://localhost:3000` in your browser. Set `PORT` to listen on a different port (`PORT=8080 npm start`).
+
+Exams, participants and answers are stored in `data/examengine.db` (created automatically on first start, ignored by git). Delete the `data/` directory to reset.
 
 ## Docker
 
@@ -66,11 +68,12 @@ All communication uses JSON over WebSocket:
 | `submit_exam` | Submit all answers |
 | `end_exam` | End exam early (creator only) |
 | `get_results` | Get exam results |
+| `get_my_answers` | Get the saved answers for a participant |
 
 ## Testing
 
 ```bash
-node test.js
+npm test        # or: node test.js
 ```
 
-Runs an automated integration test covering registration, exam creation, joining, answering, disconnect/reconnect with answer restoration, submission, and results.
+Starts a server on port 3999 and runs an automated integration test covering registration, exam creation, joining, answering, disconnect/reconnect with answer restoration, submission, and results.
